@@ -13,11 +13,11 @@ let result = "";
 
 if ( isEven(sum)){
 
-    result = 'even';
+    result = 'pari';
 
 }else{
 
-    result = 'odd';
+    result = 'dispari';
 
 };
 
