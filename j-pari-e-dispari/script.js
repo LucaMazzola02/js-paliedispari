@@ -1,59 +1,63 @@
 
 
-const userNUmber = parseInt(document.getElementById('user-number').value);
+const userNUmber = parseInt(prompt('Scegli un numero da 1 a 5'));
 
-const pariDispariElement = document.getElementById('pari-o-dispari').value; 
+const userChoise = prompt('Scegli pari o dispari'); 
 
-let outputElement = document.getElementById('output');
+const aINumber = casual(1,5);
 
-const buttonElement = document.querySelector('button');
+const sum = userNUmber + aINumber;
 
 
-buttonElement.addEventListener('click', function(){
+let result = "";
 
-let pcRandomNumber = casual;
+if ( isEven(sum)){
 
-function casual(num) {
-    num = Math.floor(Math.random() * (5 - 1) + 1);
-    return num;
-}
+    result = 'even';
 
-document.getElementById('pc-random').innerHTML = pcRandomNumber;
+}else{
 
-let somma = userNUmber + pcRandomNumber;
-
-function sumVerify(addition){
-
-    if(addition === 0){
-        
-        return true;
-
-    }
-
-        return false;
+    result = 'odd';
 
 };
 
-document.getElementById('sumNumbers').innerHTML = somma;
 
-    if(userNUmber > 0 && userNUmber <= 5){
+if ( result === userChoise.toLocaleLowerCase()){
 
-        if((sumVerify(somma)) === pariDispariElement){
+    document.getElementById('output').innerHTML = ('Hai vinto');
+    document.getElementById('user-number').innerHTML = userNUmber;
+    document.getElementById('pc-number').innerHTML = aINumber;
+    document.getElementById('sum').innerHTML = sum;    
 
-        outputElement = 'complimenti hai vinto';
+}else{
 
-    }else{
+    document.getElementById('output').innerHTML = ('Ritenta, sarai + fortunato');
+    document.getElementById('user-number').innerHTML = userNUmber;
+    document.getElementById('pc-number').innerHTML = aINumber;
+    document.getElementById('sum').innerHTML = sum;
 
-        outputElement = 'Ritenta e sarai + fortunato';
+};
 
-    };
-    }else{
 
-        outputElement = 'Inserisci un numero compreso tra 1 e 5 grazie';
+function isEven(number){
 
-    };
+    if(number % 2 === 0){
 
-});
+        return true;
+    }
+    
+    return false;
+};
+
+function casual(massimo, minimo){
+
+    return Math.floor(Math.random() * (massimo - minimo) + minimo);
+
+}
+
+
+
+
 
 
 
